@@ -2,6 +2,13 @@ public class Coin {
     private String state;
     private int heads;
     private int tails;
+    private double pTails;
+    public Coin(double pt) {
+        pTails = pt;
+    }
+    public Coin() {
+        pTails = 0.5;
+    }
 
     public String getState() {
         return state;
@@ -13,8 +20,12 @@ public class Coin {
         return tails;
     }
 
+    public void setPtails(double pt) {
+        pTails = pt;
+    }
+
     public void flip() {
-        if (Math.random() < 0.5) {
+        if (Math.random() < pTails) {
             state = "tails";
             tails++;
         } else {
